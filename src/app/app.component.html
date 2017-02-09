@@ -1,7 +1,14 @@
 <h1>
-  {{title}}
+  Root Component
 </h1>
 
-<app-other></app-other>
 
-<app-another></app-another>
+<!-- <app-other></app-other>
+
+<app-databinding></app-databinding> -->
+
+<app-lifecycle *ngIf="!del">
+	<p>{{test}}</p>
+</app-lifecycle>
+<button (click)="del = true">Click to Delete</button>
+<button (click)="test = 'Changed Value'">Click to Change</button>
