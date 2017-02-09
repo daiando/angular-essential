@@ -1,15 +1,14 @@
 import { Component, OnInit, OnChanges, DoCheck, AfterContentInit,
-AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy } from '@angular/core';
+AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy, Input } from '@angular/core';
 
 @Component({
   selector: 'app-lifecycle',
-  template: `
-    <ng-content></ng-content>
-  `,
+  templateUrl: './lifecycle.component.html',
   styles: []
 })
 export class LifecycleComponent implements OnInit, OnChanges, DoCheck, AfterContentInit,
 AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy {
+ @Input() bindable = 1000;
 
   constructor() { }
 

@@ -10,4 +10,5 @@ export class AppComponent {
   title = 'I changed it !';
   del = false;
   test = 'Starting Value';
+  boundValue = 1000
 }
