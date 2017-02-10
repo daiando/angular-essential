@@ -1,10 +1,10 @@
-import { AngularEssentialPage } from './app.po';
+import { CompleteGuidePage } from './app.po';
 
-describe('angular-essential App', function() {
-  let page: AngularEssentialPage;
+describe('complete-guide App', function() {
+  let page: CompleteGuidePage;
 
   beforeEach(() => {
-    page = new AngularEssentialPage();
+    page = new CompleteGuidePage();
   });
 
   it('should display message saying app works', () => {

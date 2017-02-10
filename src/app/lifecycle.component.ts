@@ -1,51 +1,71 @@
-import { Component, OnInit, OnChanges, DoCheck, AfterContentInit,
-AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy, Input } from '@angular/core';
+import {
+    Component,
+    OnInit,
+    OnChanges,
+    DoCheck,
+    AfterContentInit,
+    AfterContentChecked,
+    AfterViewInit,
+    AfterViewChecked,
+    OnDestroy,
+    Input,
+    ContentChild,
+    ViewChild
+} from '@angular/core';
 
 @Component({
-  selector: 'app-lifecycle',
-  templateUrl: './lifecycle.component.html',
-  styles: []
+    selector: 'fa-lifecycle',
+    templateUrl: './lifecycle.component.html',
+    styles: []
 })
-export class LifecycleComponent implements OnInit, OnChanges, DoCheck, AfterContentInit,
-AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy {
- @Input() bindable = 1000;
+export class LifecycleComponent implements OnChanges, OnInit, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy {
+    @Input()
+    bindable = 1000;
 
-  constructor() { }
+    @ContentChild('boundContent')
+    boundContent: HTMLElement;
 
-  ngOnChanges() {
-    this.log('ngOnchanges')
-  }
+    @ViewChild('boundParagraph')
+    boundParagraph: HTMLElement;
 
-  ngOnInit() {
-    this.log('ngOnInit')
-  }
+    constructor() {
+    }
 
-  ngDoCheck() {
-    this.log('ngDoCheck')
-  }
+    ngOnChanges() {
+        this.log('ngOnChanges');
+    }
 
-  ngAfterContentInit() {
-    this.log('ngAfterContentInit')
-  }
+    ngOnInit() {
+        this.log('ngOnInit');
+    }
 
-  ngAfterContentChecked() {
-    this.log('ngAfterContentChecked')
-  }
+    ngDoCheck() {
+        this.log('ngDoCheck');
+    }
 
-  ngAfterViewInit() {
-    this.log('ngAfterViewInit')
-  }
+    ngAfterContentInit() {
+        this.log('ngAfterContentInit');
+        console.log(this.boundContent);
+    }
 
-  ngAfterViewChecked() {
-    this.log('ngAfterViewChecked')
-  }
+    ngAfterContentChecked() {
+        this.log('ngAfterContentChecked');
+    }
 
-  ngOnDestroy() {
-    this.log('ngOnDestroy')
-  }
+    ngAfterViewInit() {
+        this.log('ngAfterViewInit');
+        console.log(this.boundParagraph);
+    }
 
-  private log(hook: string){
-    console.log(hook);
-  }
+    ngAfterViewChecked() {
+        this.log('ngAfterViewChecked');
+    }
 
+    ngOnDestroy() {
+        this.log('ngOnDestroy');
+    }
+
+    private log(hook: string) {
+        console.log(hook);
+    }
 }

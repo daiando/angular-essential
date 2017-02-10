@@ -1,6 +1,6 @@
 import { browser, element, by } from 'protractor';
 
-export class AngularEssentialPage {
+export class CompleteGuidePage {
   navigateTo() {
     return browser.get('/');
   }
